@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: coupon-api
+server:
+  port: 8080
+  tomcat:
+    mbeanregistry:
+      enabled: true
