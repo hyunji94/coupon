@@ -1,4 +1,8 @@
-from locust import task, FastHttpUser
+import random
+from locust import task, FastHttpUser, stats
+
+stats.PERCENTILES_TO_CHART = [0.95, 0.99]
+
 
 class CouponIssueV1(FastHttpUser):
     connection_timeout = 10.0
@@ -6,4 +10,9 @@ class CouponIssueV1(FastHttpUser):
 
     @task
     def issue(self):
-        self.client.get("/hello")
+        payload = {
+            "userId": random.randint(1, 10000000),
+            "couponId": 1
+        }
+        with self.rest("POST", "/issue", json=payload):
+            pass

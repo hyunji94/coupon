@@ -36,6 +36,7 @@ public class CouponIssueService {
     }
     @Transactional
     public CouponIssue saveCouponIssue(long couponId, long userId) {
+        checkAlreadyIssuance(couponId,userId);
         CouponIssue issue = CouponIssue.builder()
                 .couponId(couponId)
                 .userId(userId)
@@ -43,8 +44,12 @@ public class CouponIssueService {
         return couponIssueJpaRepository.save(issue);
     }
 
-    private void checkAlreadyIssuance(long couponID, long userId){
-
+    private void checkAlreadyIssuance(long couponId, long userId){
+        CouponIssue issue =couponIssueRepository.findFirstCouponIssue(couponId,userId);
+        if(issue !=null){
+            throw new CouponIssueException(ErrorCode.DUPLICATED_COUPON_ISSUE
+                    ,"이미 발급된 쿠폰입니다. user_id : %s, couponId : $s".formatted(userId,couponId));
+        }
     }
 
 }
