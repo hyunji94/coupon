@@ -926,7 +926,7 @@ coupon|schema||admin||UPDATE|G</Grants>
     </collation>
     <schema id="288" parent="1" name="coupon">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-06-09.05:03:02</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-06-10.13:03:57</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </schema>
     <schema id="289" parent="1" name="information_schema">

@@ -6,7 +6,7 @@ spring:
     hikari:
       jdbc-url: jdbc:mysql://localhost:3306/coupon?useUnicode=yes&characterEncoding=UTF-8&rewriteBatchedStatements=true
       driver-class-name: com.mysql.cj.jdbc.Driver
-      maximum-pool-size: 10
+      maximum-pool-size: 50
       max-lifetime: 30000
       connection-timeout: 3000
       username: admin

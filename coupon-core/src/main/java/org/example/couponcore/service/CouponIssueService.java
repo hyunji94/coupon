@@ -1,6 +1,6 @@
 package org.example.couponcore.service;
 
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.example.couponcore.exception.CouponIssueException;
 import org.example.couponcore.exception.ErrorCode;
@@ -21,15 +21,23 @@ public class CouponIssueService {
 
     @Transactional
     public void issue(long couponId,long userId){
-        Coupon coupon = findCoupon(couponId);
+        Coupon coupon = findCouponWithLock(couponId);
         coupon.issue();
         saveCouponIssue(couponId, userId);
     }
 
 
-    @Transactional
+    @Transactional(readOnly=true)
     public Coupon findCoupon(long couponId){
         return couponJpaRepository.findById(couponId).orElseThrow(()->{
+            throw new CouponIssueException(ErrorCode.COUPON_NOT_EXIST,
+                    "쿠폰 정책이 존재하지 않습니다. %s".formatted(couponId));
+        });
+    }
+
+    @Transactional
+    public Coupon findCouponWithLock(long couponId){
+        return couponJpaRepository.findCouponWithLock(couponId).orElseThrow(()->{
             throw new CouponIssueException(ErrorCode.COUPON_NOT_EXIST,
                     "쿠폰 정책이 존재하지 않습니다. %s".formatted(couponId));
         });
