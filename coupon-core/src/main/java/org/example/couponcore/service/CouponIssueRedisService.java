@@ -30,12 +30,12 @@ public class CouponIssueRedisService {
             return true;
         }
         String key = getIssueRequestKey(couponId);
-        return totalQuantity > redisRepository.sCard(key);
+        return totalQuantity > redisRepository.sCard(key); //쿠폰 발급 수량 제어
     }
 
     //중복 발급
     public boolean availableUserIssueQuantity(long couponId, long userId){
         String key = getIssueRequestKey(couponId);
-        return !redisRepository.sIsMember(key,String.valueOf(userId));
+        return !redisRepository.sIsMember(key,String.valueOf(userId)); //중복 발급 요청 제어
     }
 }

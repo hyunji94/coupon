@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="356e5acf-f98b-49ae-bd76-615b20284694" name="변경" comment="[feat] redis 기반 쿠폰발급요청 api 개발(set)">
+    <list default="true" id="356e5acf-f98b-49ae-bd76-615b20284694" name="변경" comment="[feat] 쿠폰 발급 요청 api_캐시 적용">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9190b2fa-eb7e-4d27-8bd1-fe6f143ecc85.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9190b2fa-eb7e-4d27-8bd1-fe6f143ecc85.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f94d8f61-613e-47a0-94b9-00495c48a246.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f94d8f61-613e-47a0-94b9-00495c48a246.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/exception/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coupon-api/src/main/java/org/example/couponapi/controller/CouponIssueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-api/src/main/java/org/example/couponapi/controller/CouponIssueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coupon-api/src/main/java/org/example/couponapi/service/CouponIssueRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-api/src/main/java/org/example/couponapi/service/CouponIssueRequestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/repository/redis/RedisRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/repository/redis/RedisRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/AsyncCouponIssueServiceV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/AsyncCouponIssueServiceV1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/CouponIssueRedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/CouponIssueRedisService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-core/src/main/resources/application-core.yml" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/resources/application-core.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-test/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/load-test/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,8 +124,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Docker.docker-compose.yml: Compose 배포.executor": "Run",
+    "Docker.load-test.master: Compose 배포.executor": "Run",
     "Docker.load-test: Compose 배포 (1).executor": "Run",
     "Docker.load-test: Compose 배포.executor": "Run",
+    "Gradle.AsyncCouponIssueService2Test.executor": "Run",
+    "Gradle.AsyncCouponIssueService2Test.issue_5.executor": "Run",
+    "Gradle.AsyncCouponIssueService2Test.issue_6.executor": "Run",
     "Gradle.AsyncCouponIssueServiceTest.executor": "Run",
     "Gradle.CouponConsumerApplicationTests.executor": "Run",
     "Gradle.CouponIssueRedisServiceTest.executor": "Run",
@@ -191,6 +194,7 @@
       <recent name="org.example.couponcore.model" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.couponcore.service" />
       <recent name="org.example.couponcore.repository.mysql" />
     </key>
   </component>
@@ -203,8 +207,8 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.CouponApiApplication">
-    <configuration name="AsyncCouponIssueServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Docker.load-test: Compose 배포">
+    <configuration name="AsyncCouponIssueService2Test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -217,7 +221,7 @@
           <list>
             <option value=":coupon-core:test" />
             <option value="--tests" />
-            <option value="&quot;org.example.couponcore.service.AsyncCouponIssueServiceTest&quot;" />
+            <option value="&quot;org.example.couponcore.service.AsyncCouponIssueService2Test&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -228,7 +232,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CouponIssueRedisServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AsyncCouponIssueService2Test.issue_5" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -241,7 +245,7 @@
           <list>
             <option value=":coupon-core:test" />
             <option value="--tests" />
-            <option value="&quot;org.example.couponcore.service.CouponIssueRedisServiceTest&quot;" />
+            <option value="&quot;org.example.couponcore.service.AsyncCouponIssueService2Test.issue_5&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -252,26 +256,28 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="coupon [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AsyncCouponIssueService2Test.issue_6" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="build" />
+            <option value=":coupon-core:test" />
+            <option value="--tests" />
+            <option value="&quot;org.example.couponcore.service.AsyncCouponIssueService2Test.issue_6&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="CouponApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -302,15 +308,7 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml: Compose 배포" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="load-test: Compose 배포 (1)" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+    <configuration name="load-test: Compose 배포" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
           <option name="sourceFilePath" value="load-test/docker-compose.yml" />
@@ -318,23 +316,36 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="load-test.master: Compose 배포" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="master" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="load-test/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Docker.load-test: Compose 배포 (1)" />
-      <item itemvalue="Docker.docker-compose.yml: Compose 배포" />
-      <item itemvalue="Gradle.AsyncCouponIssueServiceTest" />
-      <item itemvalue="Gradle.CouponIssueRedisServiceTest" />
-      <item itemvalue="Gradle.coupon [build]" />
+      <item itemvalue="Docker.load-test.master: Compose 배포" />
+      <item itemvalue="Docker.load-test: Compose 배포" />
+      <item itemvalue="Gradle.AsyncCouponIssueService2Test" />
+      <item itemvalue="Gradle.AsyncCouponIssueService2Test.issue_5" />
+      <item itemvalue="Gradle.AsyncCouponIssueService2Test.issue_6" />
       <item itemvalue="Spring Boot.CouponApiApplication" />
       <item itemvalue="Spring Boot.CouponConsumerApplication" />
       <item itemvalue="Spring Boot.CouponCoreApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.AsyncCouponIssueServiceTest" />
-        <item itemvalue="Docker.docker-compose.yml: Compose 배포" />
-        <item itemvalue="Gradle.CouponIssueRedisServiceTest" />
-        <item itemvalue="Gradle.coupon [build]" />
-        <item itemvalue="Docker.load-test: Compose 배포 (1)" />
+        <item itemvalue="Docker.load-test: Compose 배포" />
+        <item itemvalue="Docker.load-test.master: Compose 배포" />
+        <item itemvalue="Gradle.AsyncCouponIssueService2Test.issue_6" />
+        <item itemvalue="Gradle.AsyncCouponIssueService2Test.issue_5" />
+        <item itemvalue="Gradle.AsyncCouponIssueService2Test" />
       </list>
     </recent_temporary>
   </component>
@@ -348,6 +359,7 @@
       <updated>1749373513856</updated>
       <workItem from="1749373514990" duration="16761000" />
       <workItem from="1749441045814" duration="41774000" />
+      <workItem from="1749721042923" duration="6516000" />
     </task>
     <task id="LOCAL-00001" summary="[build] 초기 셋팅 및 멀티모듈 설정">
       <option name="closed" value="true" />
@@ -389,7 +401,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749633293087</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="[test] redis 기반 쿠폰발급요청 api 테스트 코드">
+      <option name="closed" value="true" />
+      <created>1749721311484</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1749721311484</updated>
+    </task>
+    <task id="LOCAL-00007" summary="[feat] 쿠폰 발급 요청 api_캐시 적용">
+      <option name="closed" value="true" />
+      <created>1749721387128</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1749721387128</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,7 +440,9 @@
     <MESSAGE value="[feat] 쿠폰 및 쿠폰발급 엔티티,컨트롤러,서비스,레포지토리 생성" />
     <MESSAGE value="[feat] 쿠폰 api 서비스 및 테스트 코드" />
     <MESSAGE value="[feat] redis 기반 쿠폰발급요청 api 개발(set)" />
-    <option name="LAST_COMMIT_MESSAGE" value="[feat] redis 기반 쿠폰발급요청 api 개발(set)" />
+    <MESSAGE value="[test] redis 기반 쿠폰발급요청 api 테스트 코드" />
+    <MESSAGE value="[feat] 쿠폰 발급 요청 api_캐시 적용" />
+    <option name="LAST_COMMIT_MESSAGE" value="[feat] 쿠폰 발급 요청 api_캐시 적용" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -432,50 +462,14 @@
           <line>15</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/AsyncCouponIssueServiceV1.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/AsyncCouponIssueServiceV1.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/AsyncCouponIssueServiceV1.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/CouponCacheService.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/CouponCacheService.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/AsyncCouponIssueServiceV1.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/AsyncCouponIssueServiceV1.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/AsyncCouponIssueServiceV1.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/AsyncCouponIssueServiceV1.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="21" />
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/coupon-core/src/test/java/org/example/couponcore/service/AsyncCouponIssueService2Test.java</url>
+          <line>127</line>
+          <properties class="org.example.couponcore.service.AsyncCouponIssueService2Test" method="issue_5">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
