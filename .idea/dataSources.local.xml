@@ -5,6 +5,7 @@
       <database-info product="MySQL" version="8.0.37-0ubuntu0.22.04.3" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-j-8.2.0 (Revision: 06a1f724497fd81c6a659131fda822c9e5085b6c)" dbms="MYSQL" exact-version="8.0.37" exact-driver-version="8.2">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
+        <jdbc-catalog-is-schema>true</jdbc-catalog-is-schema>
       </database-info>
       <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
@@ -15,8 +16,10 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
-    <data-source name="coupon-local" uuid="b95e4402-0208-43c9-a8e0-7b008c219eac">
-      <database-info product="Redis Standalone" version="3.0.504" jdbc-version="4.2" driver-name="Redis JDBC Driver" driver-version="1.5" dbms="REDIS" exact-version="3.0.504" exact-driver-version="1.5" />
+    <data-source name="coupon-local" uuid="131b7209-75f2-4537-b922-bb68ae7fce86">
+      <database-info product="Redis Standalone" version="3.0.504" jdbc-version="4.2" driver-name="Redis JDBC Driver" driver-version="1.5" dbms="REDIS" exact-version="3.0.504" exact-driver-version="1.5">
+        <jdbc-catalog-is-schema>true</jdbc-catalog-is-schema>
+      </database-info>
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
       <schema-mapping>

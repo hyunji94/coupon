@@ -48,6 +48,16 @@ public class RedisRepository {
         return redisTemplate.opsForList().rightPush(key, value);
     }
 
+    public Long lSize(String key){
+        return redisTemplate.opsForList().size(key);
+    }
+    public String lIndex(String key,long index){
+        return redisTemplate.opsForList().index(key,index);
+    }
+    public String lPop(String key){
+        return redisTemplate.opsForList().leftPop(key);
+    }
+
     //Redis Script
     //싱글 스레드인 Redis 메소드를 각각 나누어서 처리해서 롹을 걸지 않고 한번에 스크립트로 처리
     public void issueRequest(long couponId, long userId, int totalIssueQuantity){
@@ -71,8 +81,8 @@ public class RedisRepository {
         String script = """
                 if redis.call('SISMEMBER',KEYS[1],ARGV[1]) == 1 then
                     return '2'
-                end 
-                
+                end
+             
                 if tonumber(ARGV[2]) > redis.call('SCARD',KEYS[1]) then
                     redis.call('SADD',KEYS[1], ARGV[1])
                     redis.call('RPUSH',KEYS[2], ARGV[3])

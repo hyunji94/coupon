@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="356e5acf-f98b-49ae-bd76-615b20284694" name="변경" comment="[feat] 쿠폰 발급 요청 api_캐시 적용">
+    <list default="true" id="356e5acf-f98b-49ae-bd76-615b20284694" name="변경" comment="[refactor] 쿠폰 발급 요청 Redis script 전환">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b95e4402-0208-43c9-a8e0-7b008c219eac.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b95e4402-0208-43c9-a8e0-7b008c219eac.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-api/src/main/java/org/example/couponapi/controller/CouponIssueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-api/src/main/java/org/example/couponapi/controller/CouponIssueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-api/src/main/java/org/example/couponapi/service/CouponIssueRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-api/src/main/java/org/example/couponapi/service/CouponIssueRequestService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/repository/redis/RedisRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/repository/redis/RedisRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/AsyncCouponIssueServiceV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/AsyncCouponIssueServiceV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/CouponIssueRedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/CouponIssueRedisService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/load-test/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/load-test/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/AsyncCouponIssueServiceV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/AsyncCouponIssueServiceV2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,11 +91,11 @@
       <list>
         <option value="Dockerfile" />
         <option value="Python Script" />
-        <option value="JUnit5 Test Class" />
         <option value="Enum" />
         <option value="Interface" />
         <option value="Record" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -132,6 +130,10 @@
     "Gradle.AsyncCouponIssueService2Test.issue_6.executor": "Run",
     "Gradle.AsyncCouponIssueServiceTest.executor": "Run",
     "Gradle.CouponConsumerApplicationTests.executor": "Run",
+    "Gradle.CouponIssueListenerTest.executor": "Run",
+    "Gradle.CouponIssueListenerTest.issue_2.executor": "Run",
+    "Gradle.CouponIssueListenerTest.issue_3.executor": "Run",
+    "Gradle.CouponIssueListenerTest.test.executor": "Run",
     "Gradle.CouponIssueRedisServiceTest.executor": "Run",
     "Gradle.CouponIssueServiceTest.issue_1.executor": "Run",
     "Gradle.CouponIssueServiceTest.saveCouponIssue_1.executor": "Run",
@@ -191,9 +193,12 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.couponconsumer.component" />
       <recent name="org.example.couponcore.model" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.couponconsumer" />
+      <recent name="org.example.couponconsumer.component" />
       <recent name="org.example.couponcore.service" />
       <recent name="org.example.couponcore.repository.mysql" />
     </key>
@@ -207,8 +212,8 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.load-test: Compose 배포">
-    <configuration name="AsyncCouponIssueService2Test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.CouponIssueListenerTest">
+    <configuration name="CouponIssueListenerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -219,9 +224,9 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":coupon-core:test" />
+            <option value=":coupon-consumer:test" />
             <option value="--tests" />
-            <option value="&quot;org.example.couponcore.service.AsyncCouponIssueService2Test&quot;" />
+            <option value="&quot;org.example.couponconsumer.component.CouponIssueListenerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -232,7 +237,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="AsyncCouponIssueService2Test.issue_5" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CouponIssueListenerTest.issue_2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -243,9 +248,9 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":coupon-core:test" />
+            <option value=":coupon-consumer:test" />
             <option value="--tests" />
-            <option value="&quot;org.example.couponcore.service.AsyncCouponIssueService2Test.issue_5&quot;" />
+            <option value="&quot;org.example.couponconsumer.component.CouponIssueListenerTest.issue_2&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -256,7 +261,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="AsyncCouponIssueService2Test.issue_6" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CouponIssueListenerTest.issue_3" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -267,9 +272,33 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":coupon-core:test" />
+            <option value=":coupon-consumer:test" />
             <option value="--tests" />
-            <option value="&quot;org.example.couponcore.service.AsyncCouponIssueService2Test.issue_6&quot;" />
+            <option value="&quot;org.example.couponconsumer.component.CouponIssueListenerTest.issue_3&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="CouponIssueListenerTest.test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":coupon-consumer:test" />
+            <option value="--tests" />
+            <option value="&quot;org.example.couponconsumer.component.CouponIssueListenerTest.test&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -289,6 +318,7 @@
       </method>
     </configuration>
     <configuration name="CouponConsumerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" value="local" />
       <module name="coupon.coupon-consumer.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.couponconsumer.CouponConsumerApplication" />
       <method v="2">
@@ -316,36 +346,23 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="load-test.master: Compose 배포" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="master" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="load-test/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Docker.load-test.master: Compose 배포" />
       <item itemvalue="Docker.load-test: Compose 배포" />
-      <item itemvalue="Gradle.AsyncCouponIssueService2Test" />
-      <item itemvalue="Gradle.AsyncCouponIssueService2Test.issue_5" />
-      <item itemvalue="Gradle.AsyncCouponIssueService2Test.issue_6" />
+      <item itemvalue="Gradle.CouponIssueListenerTest" />
+      <item itemvalue="Gradle.CouponIssueListenerTest.issue_2" />
+      <item itemvalue="Gradle.CouponIssueListenerTest.issue_3" />
+      <item itemvalue="Gradle.CouponIssueListenerTest.test" />
       <item itemvalue="Spring Boot.CouponApiApplication" />
       <item itemvalue="Spring Boot.CouponConsumerApplication" />
       <item itemvalue="Spring Boot.CouponCoreApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CouponIssueListenerTest" />
         <item itemvalue="Docker.load-test: Compose 배포" />
-        <item itemvalue="Docker.load-test.master: Compose 배포" />
-        <item itemvalue="Gradle.AsyncCouponIssueService2Test.issue_6" />
-        <item itemvalue="Gradle.AsyncCouponIssueService2Test.issue_5" />
-        <item itemvalue="Gradle.AsyncCouponIssueService2Test" />
+        <item itemvalue="Gradle.CouponIssueListenerTest.issue_3" />
+        <item itemvalue="Gradle.CouponIssueListenerTest.issue_2" />
+        <item itemvalue="Gradle.CouponIssueListenerTest.test" />
       </list>
     </recent_temporary>
   </component>
@@ -359,7 +376,7 @@
       <updated>1749373513856</updated>
       <workItem from="1749373514990" duration="16761000" />
       <workItem from="1749441045814" duration="41774000" />
-      <workItem from="1749721042923" duration="6516000" />
+      <workItem from="1749721042923" duration="15006000" />
     </task>
     <task id="LOCAL-00001" summary="[build] 초기 셋팅 및 멀티모듈 설정">
       <option name="closed" value="true" />
@@ -417,7 +434,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749721387128</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="[refactor] 쿠폰 발급 요청 Redis script 전환">
+      <option name="closed" value="true" />
+      <created>1749734926979</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1749734926979</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,7 +467,8 @@
     <MESSAGE value="[feat] redis 기반 쿠폰발급요청 api 개발(set)" />
     <MESSAGE value="[test] redis 기반 쿠폰발급요청 api 테스트 코드" />
     <MESSAGE value="[feat] 쿠폰 발급 요청 api_캐시 적용" />
-    <option name="LAST_COMMIT_MESSAGE" value="[feat] 쿠폰 발급 요청 api_캐시 적용" />
+    <MESSAGE value="[refactor] 쿠폰 발급 요청 Redis script 전환" />
+    <option name="LAST_COMMIT_MESSAGE" value="[refactor] 쿠폰 발급 요청 Redis script 전환" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
