@@ -16,7 +16,7 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
-    <data-source name="coupon-local" uuid="131b7209-75f2-4537-b922-bb68ae7fce86">
+    <data-source name="coupon-local" uuid="a95ea21d-108e-4a9e-8829-3a77900256b6">
       <database-info product="Redis Standalone" version="3.0.504" jdbc-version="4.2" driver-name="Redis JDBC Driver" driver-version="1.5" dbms="REDIS" exact-version="3.0.504" exact-driver-version="1.5">
         <jdbc-catalog-is-schema>true</jdbc-catalog-is-schema>
       </database-info>

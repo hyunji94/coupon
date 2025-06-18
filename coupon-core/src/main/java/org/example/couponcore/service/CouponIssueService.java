@@ -1,5 +1,7 @@
 package org.example.couponcore.service;
 
+import org.example.couponcore.model.event.CouponIssueCompleteEvent;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.example.couponcore.exception.CouponIssueException;
@@ -18,12 +20,22 @@ public class CouponIssueService {
     private final CouponIssueRepository couponIssueRepository;
     private final CouponJpaRepository couponJpaRepository;
     private final CouponIssueJpaRepository couponIssueJpaRepository;
+    private final ApplicationEventPublisher applicationEventPublisher;
 
     @Transactional
     public void issue(long couponId,long userId){
+       // Coupon coupon = findCoupon(couponId);
         Coupon coupon = findCouponWithLock(couponId);
         coupon.issue();
         saveCouponIssue(couponId, userId);
+        //추가
+        publishCouponEvent(coupon);
+    }
+
+    private void publishCouponEvent(Coupon coupon) {
+        if(coupon.isIssueComplete()){
+            applicationEventPublisher.publishEvent(new CouponIssueCompleteEvent(coupon.getId()));
+        }
     }
 
 

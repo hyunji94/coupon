@@ -64,7 +64,7 @@ public class RedisRepository {
         String issueRequestKey = getIssueRequestKey(couponId);
         CouponIssueRequest couponIssueRequest = new CouponIssueRequest(couponId,userId);
         try{
-            String code =redisTemplate.execute(
+            String code = redisTemplate.execute(
                     issueScript,
                     List.of(issueRequestKey,issueRequestQueueKey),
                     String.valueOf(userId),

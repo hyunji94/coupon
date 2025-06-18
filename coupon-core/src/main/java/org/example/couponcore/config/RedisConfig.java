@@ -9,10 +9,12 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RedisConfig {
-    @Value("${spring.data.redis.host}")
+    //@Value("${spring.data.redis.host}")
+    @Value("localhost")
     private String host;
 
-    @Value("${spring.data.redis.port}")
+    //@Value("${spring.data.redis.host}")
+    @Value("6379")
     private int port;
 
     @Bean

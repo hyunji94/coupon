@@ -4,13 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="356e5acf-f98b-49ae-bd76-615b20284694" name="변경" comment="[refactor] 쿠폰 발급 요청 Redis script 전환">
+    <list default="true" id="356e5acf-f98b-49ae-bd76-615b20284694" name="변경" comment="[refactor] 쿠폰 발급 서버(coupon-consumer) 구현">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b95e4402-0208-43c9-a8e0-7b008c219eac.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b95e4402-0208-43c9-a8e0-7b008c219eac.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/131b7209-75f2-4537-b922-bb68ae7fce86.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/131b7209-75f2-4537-b922-bb68ae7fce86.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b95e4402-0208-43c9-a8e0-7b008c219eac.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/CouponCoreConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/CouponCoreConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/model/Coupon.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/model/Coupon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/repository/redis/RedisRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/repository/redis/RedisRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/repository/redis/dto/CouponRedisEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/repository/redis/dto/CouponRedisEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/AsyncCouponIssueServiceV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/AsyncCouponIssueServiceV1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/AsyncCouponIssueServiceV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/AsyncCouponIssueServiceV2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/CouponCacheService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/CouponCacheService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/CouponIssueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coupon-core/src/main/java/org/example/couponcore/service/CouponIssueService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-test/locustfile-async-issue2.py" beforeDir="false" afterPath="$PROJECT_DIR$/load-test/locustfile-async-issue2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,9 +102,9 @@
         <option value="Python Script" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Record" />
         <option value="Class" />
-        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -212,7 +221,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.CouponIssueListenerTest">
+  <component name="RunManager" selected="Spring Boot.CouponApiApplication">
     <configuration name="CouponIssueListenerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -358,8 +367,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CouponIssueListenerTest" />
         <item itemvalue="Docker.load-test: Compose 배포" />
+        <item itemvalue="Gradle.CouponIssueListenerTest" />
         <item itemvalue="Gradle.CouponIssueListenerTest.issue_3" />
         <item itemvalue="Gradle.CouponIssueListenerTest.issue_2" />
         <item itemvalue="Gradle.CouponIssueListenerTest.test" />
@@ -376,7 +385,9 @@
       <updated>1749373513856</updated>
       <workItem from="1749373514990" duration="16761000" />
       <workItem from="1749441045814" duration="41774000" />
-      <workItem from="1749721042923" duration="15006000" />
+      <workItem from="1749721042923" duration="23606000" />
+      <workItem from="1749817550330" duration="16100000" />
+      <workItem from="1749906467622" duration="8953000" />
     </task>
     <task id="LOCAL-00001" summary="[build] 초기 셋팅 및 멀티모듈 설정">
       <option name="closed" value="true" />
@@ -442,7 +453,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749734926979</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="[refactor] 쿠폰 발급 서버(coupon-consumer) 구현">
+      <option name="closed" value="true" />
+      <created>1749797618239</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1749797618239</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -468,7 +487,8 @@
     <MESSAGE value="[test] redis 기반 쿠폰발급요청 api 테스트 코드" />
     <MESSAGE value="[feat] 쿠폰 발급 요청 api_캐시 적용" />
     <MESSAGE value="[refactor] 쿠폰 발급 요청 Redis script 전환" />
-    <option name="LAST_COMMIT_MESSAGE" value="[refactor] 쿠폰 발급 요청 Redis script 전환" />
+    <MESSAGE value="[refactor] 쿠폰 발급 서버(coupon-consumer) 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="[refactor] 쿠폰 발급 서버(coupon-consumer) 구현" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -487,6 +507,11 @@
           <url>file://$PROJECT_DIR$/coupon-api/src/main/java/org/example/couponapi/CouponControllerAdvise.java</url>
           <line>15</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/coupon-consumer/src/main/java/org/example/couponconsumer/component/CouponIssueListener.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/coupon-core/src/test/java/org/example/couponcore/service/AsyncCouponIssueService2Test.java</url>

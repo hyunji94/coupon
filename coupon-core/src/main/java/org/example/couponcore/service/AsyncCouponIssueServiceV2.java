@@ -24,13 +24,16 @@ public class AsyncCouponIssueServiceV2 {
     //RPS 결정하는 중요한 요인
     @Transactional
     public void issue(long couponId,long userId){
-        CouponRedisEntity coupon = couponCacheService.getCouponCache(couponId);
+
+        //CouponRedisEntity coupon = couponCacheService.getCouponCache(couponId);
+        CouponRedisEntity coupon = couponCacheService.getCouponLocalCache(couponId);
         coupon.checkIssuableCoupon();
         issueRequest(couponId, userId,coupon.totalQuantity());
     }
     private void issueRequest(long couponId, long userId,Integer totalIssueQuantity){
         if(totalIssueQuantity ==null){
             redisRepository.issueRequest(couponId,userId,Integer.MAX_VALUE);
+            return;
         }
         redisRepository.issueRequest(couponId,userId,totalIssueQuantity);
     }
