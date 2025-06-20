@@ -23,8 +23,5 @@
     <schema id="16" parent="1" name="8"/>
     <schema id="17" parent="1" name="9"/>
     <collection id="18" parent="2" name="coupon::1"/>
-    <collection id="19" parent="2" name="issue.request"/>
-    <collection id="20" parent="2" name="issue.request.couponId=1"/>
-    <collection id="21" parent="2" name="lock_1"/>
   </database-model>
 </dataSource>
